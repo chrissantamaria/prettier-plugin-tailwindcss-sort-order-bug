@@ -10,3 +10,15 @@ This repo is a reproduction of a bug in [prettier-plugin-tailwindcss](https://gi
 6. Run `yarn format` and verify that the import order is (incorrectly) not restored
 7. Remove `prettier-plugin-tailwindcss` from the plugins array in `prettier.config.cjs`
 8. Repeat steps 5-6, verifying that import order is now correctly restored
+9. Replace `prettier.config.js` with a new `.prettierrc` file with the following contents:
+```json
+{
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false,
+  "singleQuote": true
+}
+```
+10. Repeat steps 5-6, verifying that import order is now correctly restored
